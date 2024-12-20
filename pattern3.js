@@ -25,6 +25,10 @@ const contact = [
   ["Jack", "0198765431", 37, "707 Spruce Court, Twin Peaks"]
 ]
 
-contact.filter(function (array) { return array[2] > 20 });
+const filterBasedContext = function (array, context) {
+  return array.filter(context);
+}
 
-findKeyValue("India");
+filterBasedContext(contact, function (array) {return array[2] > 20});
+
+// findKeyValue("India");
