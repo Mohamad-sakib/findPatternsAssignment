@@ -356,5 +356,9 @@ const hasAnyOneSharedHobbiesToRamesh = (person) => {
   });
 };
 
-const peopleWithCommonHobbiesToRamesh =
-  peopleAndHobbies.filter(hasAnyOneSharedHobbiesToRamesh).length - 1;
+const peopleWithCommonHobbiesToRamesh = peopleAndHobbies.filter(
+  hasAnyOneSharedHobbiesToRamesh
+);
+
+const countOfPeopleWithSharedHobbiesToRamesh =
+  peopleWithCommonHobbiesToRamesh.length - 1;
