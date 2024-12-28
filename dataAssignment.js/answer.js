@@ -21,4 +21,5 @@ console.log("=>", countOfVaccinatedPets);
 console.log(
   "Q4 What are the names of all the pets, and what type of animal is each?"
 );
-const allPetsNameAndType = getAllPetsNameAndType();
+const allPetsNameAndType = getAllPetsNameAndType(people);
+console.log("=>", allPetsNameAndType);
