@@ -1,6 +1,6 @@
 //importing modules
 import { people } from "./data.js";
-import { countEmployedIn } from "./queries.js";
+import { countEmployedIn, getAllPetsNameAndType } from "./queries.js";
 import { countPeopleOwnCarIn } from "./queries.js";
 import { countVaccinatedPet } from "./queries.js";
 
@@ -21,3 +21,4 @@ console.log("=>", countOfVaccinatedPets);
 console.log(
   "Q4 What are the names of all the pets, and what type of animal is each?"
 );
+const allPetsNameAndType = getAllPetsNameAndType();
