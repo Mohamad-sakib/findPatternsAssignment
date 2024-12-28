@@ -1,4 +1,4 @@
-import { testFrameWork } from "./testFrameWorkForNumber.js";
+import { testFrameWork } from "./testFrameWork.js";
 import { countEmployedIn } from "./queries.js";
 
 const personData = {
