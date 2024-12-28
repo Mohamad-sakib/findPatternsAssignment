@@ -30,3 +30,10 @@ export const countVaccinatedPet = (people) => {
   const allPets = getAllPets(people);
   return allPets.filter((pet) => pet.vaccinated).length;
 };
+
+export const getAllPetsNameAndType = (people) => {
+  const allPets = getAllPets(people);
+  return allPets.map((pet) => {
+    return { petName: pet.name, petType: pet.type };
+  });
+};

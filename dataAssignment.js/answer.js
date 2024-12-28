@@ -14,6 +14,10 @@ console.log("Q2 How many people own a car?");
 const countOfpeopleOwnCar = countPeopleOwnCarIn(people);
 console.log("=>", countOfpeopleOwnCar);
 
-console.log("How many pets are fully vaccinated?");
+console.log("Q3 How many pets are fully vaccinated?");
 const countOfVaccinatedPets = countVaccinatedPet(people);
 console.log("=>", countOfVaccinatedPets);
+
+console.log(
+  "Q4 What are the names of all the pets, and what type of animal is each?"
+);
