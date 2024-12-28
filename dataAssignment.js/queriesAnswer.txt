@@ -1,0 +1,4 @@
+Q1 How many individuals are currently employed?
+=> 2
+Q2 How many people own a car?
+=> 3
