@@ -10,10 +10,10 @@ const areEqual = (actual, expected) => {
   return actual === expected;
 };
 
-export const testFrameWork = function (fn, expected, ...input) {
+export const testFrameWork = function (fn, expected, description, ...input) {
   const actual = fn(...input);
   if (!areEqual(actual, expected)) {
-    console.log("❌", " expected ", expected, "actual ", actual, input);
+    console.log("❌", " expected ", expected, "actual ", actual, description);
   }
 };
 
