@@ -1,5 +1,5 @@
 import { testFrameWork } from "./testFrameWork.js";
-import { countEmployedIn } from "./queries.js";
+import { countEmployedIn, countVaccinatedPet } from "./queries.js";
 import { countPeopleOwnCarIn } from "./queries.js";
 
 const personData = {
@@ -63,8 +63,8 @@ const testCountEmployedIn = (querie) => {
 };
 
 //"Q2 How many people own a car??"
-const testCountPeopleOwnCarIn = (querie) => {
-  console.log("\n\n=>>>>>>>>>>>>>>>>>>", querie, "\n\n\t\t");
+const testCountPeopleOwnCarIn = (query) => {
+  console.log("\n\n=>>>>>>>>>>>>>>>>>>", query, "\n\n\t\t");
 
   testFrameWork(countPeopleOwnCarIn, 0, [{ ...personData, vechiles: [] }]);
 
@@ -82,9 +82,33 @@ const testCountPeopleOwnCarIn = (querie) => {
   testFrameWork(countPeopleOwnCarIn, 0, [{}, {}]);
 };
 
+const testCountVaccinatedPet = (query) => {
+  console.log("\n\n=>>>>>>>>>>>>>>>>>>", query, "\n\n\t\t");
+  testFrameWork(countVaccinatedPet, 2, [
+    { ...personData, pets: [{ vaccinated: true }, { vaccinated: true }] },
+  ]);
+
+  testFrameWork(countVaccinatedPet, 0, [
+    { ...personData, pets: [{ vaccinated: false }, { vaccinated: false }] },
+  ]);
+
+  testFrameWork(countVaccinatedPet, 1, [
+    { ...personData, pets: [{ vaccinated: true }, { vaccinated: false }] },
+  ]);
+
+  testFrameWork(countVaccinatedPet, 1, [
+    { ...personData, pets: [{ vaccinated: true }] },
+  ]);
+
+  testFrameWork(countVaccinatedPet, 0, [
+    { ...personData, pets: [{ vaccinated: undefined }] },
+  ]);
+};
+
 const testAll = () => {
   testCountEmployedIn("Q1 How many individuals are currently employed?");
   testCountPeopleOwnCarIn("Q2 How many people own a car??");
+  testCountVaccinatedPet("Q3 How many pets are fully vaccinated?");
   console.log("\n\t\t\tallPass ✅");
 };
 
