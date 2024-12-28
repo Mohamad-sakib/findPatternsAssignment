@@ -1,5 +1,6 @@
 import { testFrameWork } from "./testFrameWork.js";
 import { countEmployedIn } from "./queries.js";
+import { countPeopleOwnCarIn } from "./queries.js";
 
 const personData = {
   name: "Rahul",
@@ -34,7 +35,7 @@ const personData = {
 
 //"Q1 How many individuals are currently employed?"
 const testCountEmployedIn = (querie) => {
-  console.log("\n\n\t\t", querie, "\n\n\t\t");
+  console.log("\n\n=>>>>>>>>>>>>>>>>>>", querie, "\n\n\t\t");
 
   testFrameWork(countEmployedIn, 1, [{ ...personData, employed: true }]);
 
@@ -61,8 +62,30 @@ const testCountEmployedIn = (querie) => {
   testFrameWork(countEmployedIn, 0, [{}, {}]);
 };
 
+//"Q2 How many people own a car??"
+const testCountPeopleOwnCarIn = (querie) => {
+  console.log("\n\n=>>>>>>>>>>>>>>>>>>", querie, "\n\n\t\t");
+
+  testFrameWork(countPeopleOwnCarIn, 0, [{ ...personData, vechiles: [] }]);
+
+  testFrameWork(countPeopleOwnCarIn, 0, [
+    { ...personData, vechiles: undefined },
+  ]);
+
+  testFrameWork(countPeopleOwnCarIn, 1, [{ ...personData, vechiles: ["car"] }]);
+
+  testFrameWork(countPeopleOwnCarIn, 2, [
+    { ...personData, vechiles: ["car"] },
+    { ...personData, vechiles: ["car"] },
+  ]);
+
+  testFrameWork(countPeopleOwnCarIn, 0, [{}, {}]);
+};
+
 const testAll = () => {
   testCountEmployedIn("Q1 How many individuals are currently employed?");
+  testCountPeopleOwnCarIn("Q2 How many people own a car??");
+  console.log("\n\t\t\tallPass ✅");
 };
 
 testAll();
