@@ -38,6 +38,11 @@ export const getAllPetsNameAndType = (people) => {
   });
 };
 
+export const getAllPeopleHaveCity = (people) => {
+  return people.filter((person) => person.city !== undefined);
+};
+
 export const getAllCityNames = (people) => {
-  return people.map((person) => person.city);
+  const AllPeopleHaveCity = getAllPeopleHaveCity(people);
+  return AllPeopleHaveCity.map((person) => person.city);
 };

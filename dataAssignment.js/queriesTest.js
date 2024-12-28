@@ -1,9 +1,12 @@
 import { testFrameWork } from "./testFrameWork.js";
+
 import {
   countEmployedIn,
   countVaccinatedPet,
+  getAllCityNames,
   getAllPetsNameAndType,
 } from "./queries.js";
+
 import { countPeopleOwnCarIn } from "./queries.js";
 
 const displayHeading = (heading) => {
@@ -233,6 +236,39 @@ const testGetAllPetsNameAndType = (fn, query) => {
   );
 };
 
+const testGetAllCityNames = (fn, query) => {
+  displayHeading(query);
+  testFrameWork(
+    fn,
+    ["mumbai", "ghaziabad"],
+    "two people with where they linving info ",
+    [
+      { ...personData, city: "mumbai" },
+      { ...personData, city: "ghaziabad" },
+    ]
+  );
+
+  testFrameWork(
+    fn,
+    ["ghaziabad"],
+    "two people, one of them only have city info available ",
+    [
+      { ...personData, city: undefined },
+      { ...personData, city: "ghaziabad" },
+    ]
+  );
+
+  testFrameWork(fn, [], "two people with no info avaibale for city ", [
+    { ...personData, city: undefined },
+    { ...personData, city: undefined },
+  ]);
+
+  testFrameWork(fn, [], "two people with no info avaibale for city ", [
+    { ...personData, city: undefined },
+    { ...personData, city: undefined },
+  ]);
+};
+
 const testAll = () => {
   testCountEmployedIn(
     countEmployedIn,
@@ -252,6 +288,11 @@ const testAll = () => {
   testGetAllPetsNameAndType(
     getAllPetsNameAndType,
     "Q4 What are the names of all the pets, and what type of animal is each?"
+  );
+
+  testGetAllCityNames(
+    getAllCityNames,
+    "Q5 Which cities do the individuals live in?"
   );
 
   displayHeading("\n\t\t\tallPass ✅");
