@@ -30,4 +30,4 @@ console.log("=>", allPetsNameAndType);
 
 console.log("Q5 Which cities do the individuals live in?");
 const allCityNames = getAllCityNames(people);
-console.log(allCityNames);
+console.log("=>", allCityNames);

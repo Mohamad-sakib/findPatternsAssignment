@@ -13,3 +13,5 @@ Q4 What are the names of all the pets, and what type of animal is each?
   { name: "Snowy", type: "cats" },
   { name: "Kiwi", type: "parrot" }
 ]
+Q5 Which cities do the individuals live in?
+=> [ "Pune", "Bangalore", "Jaipur", "Chennai", "Bangalore" ]
