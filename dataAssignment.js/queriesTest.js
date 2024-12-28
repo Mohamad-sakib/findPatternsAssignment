@@ -103,6 +103,8 @@ const testCountVaccinatedPet = (query) => {
   testFrameWork(countVaccinatedPet, 0, [
     { ...personData, pets: [{ vaccinated: undefined }] },
   ]);
+
+  testFrameWork(countVaccinatedPet, 0, [{ ...personData, pets: [{}, {}] }]);
 };
 
 const testAll = () => {
