@@ -1,4 +1,4 @@
-const isTestPass = (actual, expected) => {
+const areEqual = (actual, expected) => {
   if (Array.isArray(expected)) {
     return areArrayEqual(actual, expected);
   }
@@ -12,7 +12,7 @@ const isTestPass = (actual, expected) => {
 
 export const testFrameWork = function (fn, expected, ...input) {
   const actual = fn(...input);
-  if (!isTestPass(actual, expected)) {
+  if (!areEqual(actual, expected)) {
     console.log("❌", " expected ", expected, "actual ", actual, input);
   }
 };
