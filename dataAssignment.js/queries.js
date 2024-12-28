@@ -8,7 +8,7 @@ export const getEmployedPeople = (people) => {
 
 export const countPeopleOwnCarIn = (people) => {
   return people.filter(
-    (person) => person.vechiles !== undefined && person.vechiles.length !== 0
+    (person) => person.vechiles !== undefined && person.vechiles.length > 0
   ).length;
 };
 
