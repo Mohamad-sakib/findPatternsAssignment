@@ -37,3 +37,7 @@ export const getAllPetsNameAndType = (people) => {
     return { name: pet.name, type: pet.type };
   });
 };
+
+export const getAllCityNames = (people) => {
+  return people.map((person) => person.city);
+};
