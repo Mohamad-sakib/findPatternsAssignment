@@ -15,3 +15,18 @@ export const countPeopleOwnCarIn = (people) => {
 export const countOfpeopleOwnCar = (people) => {
   return people.filter((person) => person.ownVechile);
 };
+
+export const getPeopleHavePets = (people) => {
+  return people.filter((person) => person.pets.length > 0);
+};
+
+export const getAllPets = (people) => {
+  return people.flatMap((person) => {
+    return person.pets;
+  });
+};
+
+export const countVaccinatedPet = (people) => {
+  const allPets = getAllPets(people);
+  return allPets.filter((pet) => pet.vaccinated).length;
+};
