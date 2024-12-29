@@ -1,10 +1,13 @@
 //importing modules
 import { people } from "./data.js";
+
 import {
   countEmployedIn,
   getAllCityNames,
+  getAllPetsActivitiesAndCountIn,
   getAllPetsNameAndType,
 } from "./queries.js";
+
 import { countPeopleOwnCarIn } from "./queries.js";
 import { countVaccinatedPet } from "./queries.js";
 

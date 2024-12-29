@@ -1,9 +1,9 @@
-const areEqual = (actual, expected) => {
+export const areEqual = (actual, expected) => {
   if (Array.isArray(expected)) {
     return areArrayEqual(actual, expected);
   }
 
-  if (typeof expectedElement === "object") {
+  if (typeof expected === "object") {
     return areObjectEqual(actual, expected);
   }
 
@@ -39,7 +39,7 @@ const areArrayEqual = (actual, expected) => {
   });
 };
 
-const areObjectEqual = (actualObj, expectedObj) => {
+export const areObjectEqual = (actualObj, expectedObj) => {
   const keys1 = Object.keys(actualObj);
   const keys2 = Object.keys(expectedObj);
 

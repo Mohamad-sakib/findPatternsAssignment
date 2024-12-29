@@ -4,6 +4,7 @@ import {
   countEmployedIn,
   countVaccinatedPet,
   getAllCityNames,
+  getAllPetsActivitiesAndCountIn,
   getAllPetsNameAndType,
 } from "./queries.js";
 
@@ -269,6 +270,66 @@ const testGetAllCityNames = (fn, query) => {
   ]);
 };
 
+const testGetAllPetsActivitiesAndCountIn = (fn, query) => {
+  displayHeading(query);
+
+  const activities = "favoriteActivities";
+  const count = "countOfActivities";
+
+  testFrameWork(
+    fn,
+    { [activities]: ["dancing", "singing", "bathing", "swiming"], [count]: 4 },
+    "two people with two diffrent pets each ",
+    [
+      {
+        ...personData,
+        pets: [{ [activities]: ["dancing"] }, { [activities]: ["singing"] }],
+      },
+      {
+        ...personData,
+        pets: [{ [activities]: ["bathing"] }, { [activities]: ["swiming"] }],
+      },
+    ]
+  );
+
+  testFrameWork(
+    fn,
+    { [activities]: ["dancing", "singing"], [count]: 2 },
+    "one person , two pets ",
+    [
+      {
+        ...personData,
+        pets: [{ [activities]: ["dancing"] }, { [activities]: ["singing"] }],
+      },
+    ]
+  );
+
+  testFrameWork(
+    fn,
+    { [activities]: ["dancing"], [count]: 1 },
+    "one person with one pet",
+    [{ ...personData, pets: [{ [activities]: ["dancing"] }] }]
+  );
+
+  testFrameWork(fn, { [activities]: [], [count]: 0 }, "one peron with no pet", [
+    { ...personData, pets: [] },
+  ]);
+
+  testFrameWork(
+    fn,
+    { [activities]: [undefined], [count]: 1 },
+    "one person with one pet , having no info available for fav actives or no fav activities",
+    [{ ...personData, pets: [{ [activities]: undefined }] }]
+  );
+
+  testFrameWork(
+    fn,
+    { [activities]: [], [count]: 0 },
+    "one perso with one pet , having no info available",
+    [{ ...personData, pets: [{}] }]
+  );
+};
+
 const testAll = () => {
   testCountEmployedIn(
     countEmployedIn,
@@ -293,6 +354,11 @@ const testAll = () => {
   testGetAllCityNames(
     getAllCityNames,
     "Q5 Which cities do the individuals live in?"
+  );
+
+  testGetAllPetsActivitiesAndCountIn(
+    getAllPetsActivitiesAndCountIn,
+    "Q6 How many hobbies are shared across the group? What are they?"
   );
 
   displayHeading("\n\t\t\tallPass ✅");

@@ -1,3 +1,5 @@
+import { areEqual } from "./testFrameWork.js";
+
 export const countEmployedIn = (people) => {
   return people.filter((person) => person.employed).length;
 };
@@ -49,7 +51,10 @@ export const getAllCityNames = (people) => {
 
 export const getAllPetsActivitiesAndCountIn = (people) => {
   const allPets = getAllPets(people);
-  const allActivities = allPets.flatMap((pet) => pet.favoriteActivities);
+  const allActivities = allPets.flatMap((pet) => {
+    return areEqual({}, pet) ? [] : pet.favoriteActivities;
+  });
+
   return {
     favoriteActivities: allActivities,
     countOfActivities: allActivities.length,
