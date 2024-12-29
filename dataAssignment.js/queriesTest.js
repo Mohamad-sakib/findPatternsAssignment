@@ -1,6 +1,7 @@
 import { testFrameWork } from "./testFrameWork.js";
 
 import {
+  countAllPetsOfUnemployed,
   countEmployedIn,
   countVaccinatedPet,
   getAllCityNames,
@@ -19,7 +20,7 @@ const personData = {
   name: "Rahul",
   city: "Pune",
   country: "india",
-  employed: true,
+  employed: false,
   profession: "software engineer",
   age: 24,
   studied: ["computer science"],
@@ -394,6 +395,37 @@ const testGetAllHobbiesAndCountIn = (fn, query) => {
   );
 };
 
+const testcountAllPetsOfUnemployed = (fn, query) => {
+  displayHeading(query);
+
+  // testFrameWork(fn, 3, "two unemployed people with two diffrent pets each ", [
+  //   {
+  //     ...personData,
+  //     pets: [{}, {}],
+  //   },
+  //   {
+  //     ...personData,
+  //     pets: [{}],
+  //   },
+  // ]);
+
+  // testFrameWork(fn, 0, "one employed person , two pets ", [
+  //   {
+  //     ...personData,
+  //     employed: true,
+  //     pets: [{}, {}],
+  //   },
+  // ]);
+
+  // testFrameWork(fn, 1, "one unempoyed person with one pet", [
+  //   { ...personData },
+  // ]);
+
+  // testFrameWork(fn, 0, "one peron with no pet", [{ ...personData, pets: [] }]);
+
+  testFrameWork(fn, 0, "one perso with , having no info available", [{}]);
+};
+
 const testAll = () => {
   testCountEmployedIn(
     countEmployedIn,
@@ -428,6 +460,11 @@ const testAll = () => {
   testGetAllHobbiesAndCountIn(
     getAllHobbiesAndCountIn,
     "Q7 How many hobbies are shared across the group? What are they?"
+  );
+
+  testcountAllPetsOfUnemployed(
+    countAllPetsOfUnemployed,
+    "Q8 How many pets belong to people who are currently unemployed?"
   );
 
   displayHeading("\n\t\t\tallPass ✅");

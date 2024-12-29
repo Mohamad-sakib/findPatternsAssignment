@@ -80,5 +80,17 @@ const getAllHobbieType = (hobbies) => {
 export const getAllHobbiesAndCountIn = (people) => {
   const allHobbies = getAllHobbiesSharedIn(people);
   const allHobbieType = getAllHobbieType(allHobbies);
+
   return { hobbies: allHobbieType, hobbiesCount: allHobbieType.length };
+};
+
+export const filterUnemployedPeople = (people) => {
+  return people.filter((person) => !person.employed);
+};
+
+export const countAllPetsOfUnemployed = (people) => {
+  const unemployedPeople = filterUnemployedPeople(people);
+  const allPetsOfUnemployed = getAllPets(unemployedPeople);
+
+  return allPetsOfUnemployed[0] === undefined ? 0 : allPetsOfUnemployed.length;
 };

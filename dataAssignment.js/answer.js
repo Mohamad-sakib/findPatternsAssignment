@@ -2,6 +2,7 @@
 import { people } from "./data.js";
 
 import {
+  countAllPetsOfUnemployed,
   countEmployedIn,
   getAllCityNames,
   getAllHobbiesAndCountIn,
@@ -45,3 +46,7 @@ console.log("=>", allPetsActitvitiesAndCount, "\n");
 console.log("Q7 How many hobbies are shared across the group? What are they?");
 const allHobbieSharedAndCount = getAllHobbiesAndCountIn(people);
 console.log("=>", allHobbieSharedAndCount, "\n");
+
+console.log("Q8 How many pets belong to people who are currently unemployed?");
+const countOfAllPetsOfUnemployed = countAllPetsOfUnemployed(people);
+console.log("=>", countOfAllPetsOfUnemployed, "\n");
