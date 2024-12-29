@@ -31,3 +31,7 @@ console.log("=>", allPetsNameAndType);
 console.log("Q5 Which cities do the individuals live in?");
 const allCityNames = getAllCityNames(people);
 console.log("=>", allCityNames);
+
+console.log("How many hobbies are shared across the group? What are they?");
+const allPetsActitvitiesAndCount = getAllPetsActivitiesAndCountIn(people);
+console.log(allPetsActitvitiesAndCount);

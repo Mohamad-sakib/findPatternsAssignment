@@ -46,3 +46,12 @@ export const getAllCityNames = (people) => {
   const AllPeopleHaveCity = getAllPeopleHaveCity(people);
   return AllPeopleHaveCity.map((person) => person.city);
 };
+
+export const getAllPetsActivitiesAndCountIn = (people) => {
+  const allPets = getAllPets(people);
+  const allActivities = allPets.flatMap((pet) => pet.favoriteActivities);
+  return {
+    favoriteActivities: allActivities,
+    countOfActivities: allActivities.length,
+  };
+};

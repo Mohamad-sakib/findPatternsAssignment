@@ -15,7 +15,7 @@ export const people = [
         vaccinated: true,
         type: "dog",
         category: "golden retriever",
-        favoriteActivities: true,
+        favoriteActivities: ["fetch", "hide and seek"],
       },
     ],
     hobbies: [
@@ -46,15 +46,13 @@ export const people = [
         vaccinated: true,
         type: "parrot",
         category: "not available",
-        favoriteActivities: true,
+        favoriteActivities: ["Dancing", "Silly talk"],
       },
     ],
-    hobbiesCount: 1,
     hobbies: [
       {
         type: "cooking",
         interested: ["experiments with Italian recipes"],
-        shareTo: [{}],
       },
     ],
   },
@@ -75,7 +73,7 @@ export const people = [
         vaccinated: true,
         type: "cats",
         category: "Persian cats",
-        favoriteActivities: true,
+        favoriteActivities: ["Scratching wood"],
       },
       {
         name: "Leo",
@@ -83,7 +81,7 @@ export const people = [
         vaccinated: true,
         type: "cats",
         category: "Persian cats",
-        favoriteActivities: true,
+        favoriteActivities: ["sleeping"],
       },
     ],
     hobbies: [
@@ -114,7 +112,7 @@ export const people = [
         vaccinated: true,
         type: "cats",
         category: "Persian cats",
-        favoriteActivities: true,
+        favoriteActivities: ["Hunting prey"],
       },
     ],
     hobbies: [
@@ -145,7 +143,7 @@ export const people = [
         vaccinated: true,
         type: "parrot",
         category: "not available",
-        favoriteActivities: true,
+        favoriteActivities: ["Bathing"],
       },
     ],
     hobbies: [
