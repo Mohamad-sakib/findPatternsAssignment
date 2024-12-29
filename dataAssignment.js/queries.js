@@ -60,3 +60,25 @@ export const getAllPetsActivitiesAndCountIn = (people) => {
     countOfActivities: allActivities.length,
   };
 };
+
+const getAllHobbiesSharedIn = (people) => {
+  return people.flatMap((person) => {
+    // console.log(person, "person is here");
+    return areEqual({}, person) ? [] : person.hobbies;
+  });
+}; //when there is only one person with a hobbie but info is not available for
+// the hobbie instead the hobbie is associated with undefined then what should
+// be totalHobbiesCount and all hobbies can it be {allHobbie :
+// [undefined], count: 1}
+
+const getAllHobbieType = (hobbies) => {
+  return hobbies.flatMap((hobbie) => {
+    return areEqual({}, hobbie) ? [] : hobbie.type;
+  });
+};
+
+export const getAllHobbiesAndCountIn = (people) => {
+  const allHobbies = getAllHobbiesSharedIn(people);
+  const allHobbieType = getAllHobbieType(allHobbies);
+  return { hobbies: allHobbieType, hobbiesCount: allHobbieType.length };
+};

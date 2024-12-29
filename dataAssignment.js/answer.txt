@@ -1,9 +1,35 @@
+true
+true
+true
+false
+true
+false
+false
+false
+true
+
+
+testing for areArrayEqual
+true
+true
+true
+false
+true
+false
+false
+false
+true
+false
+true
 Q1 How many individuals are currently employed?
-=> 2
+=> 2 
+
 Q2 How many people own a car?
-=> 3
+=> 3 
+
 Q3 How many pets are fully vaccinated?
-=> 6
+=> 6 
+
 Q4 What are the names of all the pets, and what type of animal is each?
 => [
   { name: "max", type: "dog" },
@@ -12,6 +38,38 @@ Q4 What are the names of all the pets, and what type of animal is each?
   { name: "Leo", type: "cats" },
   { name: "Snowy", type: "cats" },
   { name: "Kiwi", type: "parrot" }
-]
+] 
+
 Q5 Which cities do the individuals live in?
-=> [ "Pune", "Bangalore", "Jaipur", "Chennai", "Bangalore" ]
+=> [ "Pune", "Bangalore", "Jaipur", "Chennai", "Bangalore" ] 
+
+Q6 How many petActivities are shared across the group? What are they?
+=> {
+  favoriteActivities: [
+    "fetch",
+    "hide and seek",
+    "Dancing",
+    "Silly talk",
+    "Scratching wood",
+    "sleeping",
+    "Hunting prey",
+    "Bathing"
+  ],
+  countOfActivities: 8
+} 
+
+Q7 How many hobbies are shared across the group? What are they?
+=> {
+  hobbies: [
+    "playing chess",
+    "gardening",
+    "cooking",
+    "gardening",
+    "reading",
+    "watching",
+    "reading",
+    "cooking"
+  ],
+  hobbiesCount: 8
+} 
+

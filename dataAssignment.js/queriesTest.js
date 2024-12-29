@@ -4,6 +4,7 @@ import {
   countEmployedIn,
   countVaccinatedPet,
   getAllCityNames,
+  getAllHobbiesAndCountIn,
   getAllPetsActivitiesAndCountIn,
   getAllPetsNameAndType,
 } from "./queries.js";
@@ -330,6 +331,69 @@ const testGetAllPetsActivitiesAndCountIn = (fn, query) => {
   );
 };
 
+const testGetAllHobbiesAndCountIn = (fn, query) => {
+  displayHeading(query);
+
+  const hobbies = "hobbies";
+  const count = "hobbiesCount";
+
+  testFrameWork(
+    fn,
+    { [hobbies]: ["dancing", "singing", "bathing", "swiming"], [count]: 4 },
+    "two people with two diffrent hobbies each ",
+    [
+      {
+        ...personData,
+        [hobbies]: [{ type: "dancing" }, { type: "singing" }],
+      },
+      {
+        ...personData,
+        [hobbies]: [{ type: "bathing" }, { type: "swiming" }],
+      },
+    ]
+  );
+
+  testFrameWork(
+    fn,
+    { [hobbies]: ["dancing", "singing"], [count]: 2 },
+    "one person , two hobbies ",
+    [
+      {
+        ...personData,
+        [hobbies]: [{ type: "dancing" }, { type: "singing" }],
+      },
+    ]
+  );
+
+  testFrameWork(
+    fn,
+    { [hobbies]: ["dancing"], [count]: 1 },
+    "one person with one hobbie",
+    [{ ...personData, [hobbies]: [{ type: "dancing" }] }]
+  );
+
+  testFrameWork(
+    fn,
+    { [hobbies]: [], [count]: 0 },
+    "one peron with no hobbies",
+    [{ ...personData, hobbies: [] }]
+  );
+
+  testFrameWork(
+    fn,
+    { [hobbies]: [undefined], [count]: 1 },
+    "one person with one hobbie , having no info available for",
+    [{ ...personData, [hobbies]: [{ type: undefined }] }]
+  );
+
+  testFrameWork(
+    fn,
+    { [hobbies]: [], [count]: 0 },
+    "one person with one hobbie , having no info available",
+    [{ ...personData, hobbies: [{}] }]
+  );
+};
+
 const testAll = () => {
   testCountEmployedIn(
     countEmployedIn,
@@ -358,7 +422,12 @@ const testAll = () => {
 
   testGetAllPetsActivitiesAndCountIn(
     getAllPetsActivitiesAndCountIn,
-    "Q6 How many hobbies are shared across the group? What are they?"
+    "Q6 How many PetsActivities are shared across the group? What are they?"
+  );
+
+  testGetAllHobbiesAndCountIn(
+    getAllHobbiesAndCountIn,
+    "Q7 How many hobbies are shared across the group? What are they?"
   );
 
   displayHeading("\n\t\t\tallPass ✅");
