@@ -9,6 +9,7 @@ const captureDateDetails = (date, dateFormat) => {
     /(\d{2})-(\d{2})-(\d{4})/,
     /(\d{4})-(\d{2})-(\d{2})/,
   ];
+
   const dateFormatId = findDateFormatId(dateFormat);
   const selectedCaptureFormat = captureFormats[dateFormatId];
 
@@ -50,7 +51,7 @@ const getDateDetails = (date, dateFormat) => {
   return [day, month, year];
 };
 
-const validateDate = (date, dateFormat) => {
+export const validateDate = (date, dateFormat) => {
   const [day, month, year] = getDateDetails(date, dateFormat);
   const validDate = new Date(year, month - 1, day);
 
