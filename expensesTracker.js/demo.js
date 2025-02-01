@@ -19,3 +19,5 @@ export class ExpensesTracker {
 }
 
 //[{ 1.1}, { 2.2}];
+//creating and represeting expenseTracker as class isn't good idea
+//expenseTracker as program where some of its compoents would be reprensentd as class for some valid reasons .
