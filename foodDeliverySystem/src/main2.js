@@ -13,7 +13,7 @@ const timeDiff = (initalTime, currentTime) => {
 };
 
 const deliverOrder = task(
-  (time) => display(`[${timeDiff(time, Date.now())}s] Delvering order`),
+  (time) => display(`[${timeDiff(time, Date.now())}s] Delvering order...`),
   (time, orderDetails) => {
     const updatedDetails = {
       ...orderDetails,
@@ -28,7 +28,7 @@ const deliverOrder = task(
 );
 
 const packOrder = task(
-  (time) => display(`[${timeDiff(time, Date.now())}s] Packing Order`),
+  (time) => display(`[${timeDiff(time, Date.now())}s] Packing Order...`),
   (time, orderDetails) => {
     const updatedDetails = {
       ...orderDetails,
@@ -43,13 +43,13 @@ const packOrder = task(
 );
 
 const prepareFood = task(
-  (time) => display(`[${timeDiff(time, Date.now())}s] Preparing food`),
+  (time) => display(`[${timeDiff(time, Date.now())}s] Preparing food...`),
   (time, orderDetails) => {
     const updatedDetails = {
       ...orderDetails,
       ...{ foodDetails: "Burger & Fries" },
     };
-    display(`[${timeDiff(time, Date.now())}s] food prepared`, updatedDetails);
+    display(`[${timeDiff(time, Date.now())}s] Food prepared`, updatedDetails);
     return updatedDetails;
   },
 
@@ -60,7 +60,7 @@ const prepareFood = task(
 const receiveOrder = task(
   () => {},
   (time, orderDetails) => {
-    display(`[${timeDiff(time, Date.now())}s] order received`, orderDetails);
+    display(`[${timeDiff(time, Date.now())}s] Order received`, orderDetails);
     return orderDetails;
   },
   0,
