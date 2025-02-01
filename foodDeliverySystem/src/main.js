@@ -19,7 +19,7 @@ const deliveringOrder = task(
   () => {},
   () => display("Delivering order"),
   1000,
-  deliverOrder
+  () => {}
 );
 
 const packOrder = task(
@@ -36,25 +36,18 @@ const packingOrder = task(
   packOrder
 );
 
-const foodPrepared = task(
-  () => {},
+const prepareFood = task(
+  () => display("Preparing food"),
   () => display("Food is prepared"),
   3000,
   packingOrder
-);
-
-const preparingFood = task(
-  () => {},
-  () => display("Preparing food"),
-  1000,
-  foodPrepared
 );
 
 const orderReceived = task(
   () => display("Order received"),
   () => {},
   1000,
-  preparingFood
+  prepareFood
 );
 
 orderReceived();
