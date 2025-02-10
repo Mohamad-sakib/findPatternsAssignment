@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>GameX</title>
+    <style>
+      body {
+        /* background-color: #10002b; */
+        background-color: #3c096c;
+        color: white;
+
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+        margin: 0;
+      }
+
+      #logo {
+        padding: 0;
+        margin: 0;
+        font-size: 25px;
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+          sans-serif;
+      }
+
+      header {
+        padding: 0;
+        margin: 0;
+      }
+
+      nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+      }
+
+      ul {
+        display: flex;
+        padding: 0;
+        list-style-type: none;
+        width: 90%;
+        justify-content: space-evenly;
+      }
+
+      a {
+        color: white;
+        text-decoration: none;
+      }
+
+      .top10Card {
+        background-color: white;
+        width: 22%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        /* padding: 10px; */
+        padding: 5px;
+        border-radius: 8px;
+      }
+
+      #top10Board {
+        height: 200px;
+        display: flex;
+        flex-direction: column;
+        /* justify-content: center; */
+      }
+
+      .top10CardImg {
+        height: 80%;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+
+      .categoryCardImg {
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+
+      .top10CardContent {
+        height: 20%;
+        font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .top10CardContent a {
+        color: #3c096c;
+        font-weight: 600;
+      }
+
+      .flexCenter {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .flexEvenly {
+        display: flex;
+        justify-content: space-evenly;
+      }
+
+      /* links for image  */
+      :root {
+        --img-nba2k24: url("https://m.media-amazon.com/images/I/813WLMZUlrL.jpg");
+
+        --img-nba2k20: url("https://m.media-amazon.com/images/I/81m5hdK82sL.jpg");
+
+        --img-wwe2k20: url("https://m.media-amazon.com/images/I/81mAxEmatDL.jpg");
+
+        --img-wwe2k24: url("https://upload.wikimedia.org/wikipedia/en/c/c5/WWE_2K24_Standard_Cover.png");
+      }
+    </style>
+  </head>
+
+  <body>
+    <main>
+      <header>
+        <!-- navbar -->
+
+        <nav>
+          <div><a href="" id="logo">GameX</a></div>
+          <ul>
+            <li><a href="">Home</a></li>
+            <li><a href="">Games</a></li>
+            <li><a href="">Categories</a></li>
+            <li><a href="">Contact</a></li>
+            <li><a href="">About</a></li>
+          </ul>
+        </nav>
+        <!-- banner -->
+
+        <img
+          height="450px"
+          width="100%"
+          src="https://static0.gamerantimages.com/wordpress/wp-content/uploads/2024/07/2k-games-banner-with-red-2k-publisher-logo.jpg"
+          alt="2k games"
+        />
+      </header>
+      <!-- top10Board -->
+
+      <section id="top10Board">
+        <div style="height: 20%" class="flexCenter">
+          <p>Top 10 Games 2024</p>
+        </div>
+
+        <section style="height: 80%; padding: 10px" class="flexEvenly">
+          <div class="top10Card">
+            <div
+              style="background-image: var(--img-wwe2k20)"
+              class="top10CardImg"
+            >
+              <a href="" style="margin: 10px">⬇️</a>
+            </div>
+            <div class="top10CardContent">
+              <a href="" style="font-weight: 600; color: #3c096c"> WWE 2K20</a>
+            </div>
+          </div>
+
+          <div class="top10Card">
+            <div
+              style="background-image: var(--img-wwe2k24)"
+              class="top10CardImg"
+            >
+              <a href="" style="margin: 10px">⬇️</a>
+            </div>
+            <div class="top10CardContent">
+              <a href="" style="font-weight: 600; color: #3c096c"> WWE 2K24</a>
+            </div>
+          </div>
+
+          <div class="top10Card">
+            <div
+              style="background-image: var(--img-nba2k24)"
+              class="top10CardImg"
+            >
+              <a href="" style="margin: 10px">⬇️</a>
+            </div>
+            <div class="top10CardContent">
+              <a href="" style="font-weight: 600; color: #3c096c"> NBA 2K24</a>
+            </div>
+          </div>
+
+          <div class="top10Card">
+            <div
+              style="background-image: var(--img-nba2k20)"
+              class="top10CardImg"
+            >
+              <a href="" style="margin: 10px">⬇️</a>
+            </div>
+            <div class="top10CardContent">
+              <a href=""> NBA 2K20</a>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <!-- video -->
+
+      <section style="background-color: black; height: 600px">
+        <div class="flexCenter"><p>Breathless Lauches</p></div>
+        <embed
+          src="https://www.youtube.com/embed/qx0A921z8mA?si=MFg2YdQQCVoco5NV"
+          type="text/html"
+          height="92%"
+          width="100%"
+        />
+      </section>
+
+      <!-- Categories -->
+
+      <section style="height: 400px;"">
+        <div style="height: 20%" class="flexCenter">
+          <p>Categories</p>
+        </div>
+
+        <section style="height: 80%; padding: 10px" class="flexEvenly">
+        <div class="top10Card">
+           <a href="" style="height: 100%;width: 100%;;"><div
+              style="background-image: url('https://image.api.playstation.com/vulcan/img/cfn/11307UcJm-dIRxM1uiPj2R91acwVc2_ucoZPbOOtv9wtuUxsbzzHSdQ6qXkIGrddI1uJcymMbNYYujdEZUjW2ZLE1bY6gC9g.png')"
+              class="categoryCardImg"
+            >
+            </div></a>
+            <div class="top10CardContent">
+              <a href="" style="font-weight: 600; color: #3c096c"> Role-Playing Games</a>
+            </div>
+          </div>
+        
+
+          <div class="top10Card">
+            <a href="" style="height: 100%; width: 100%;"><div
+              style="background-image: url('https://m.media-amazon.com/images/I/81JeqskUs2L._AC_UF894,1000_QL80_.jpg')"
+              class="categoryCardImg"
+            > 
+            </div>
+          </a>
+            <div class="top10CardContent">
+              <a href="" style="font-weight: 600; color: #3c096c"> Strategy Games</a>
+            </div>
+          </div>
+
+          <div class="top10Card">
+            <a href="" style="height: 100%; width: 100%;"><div
+              style="background-image: var(--img-nba2k24)"
+              class="categoryCardImg"
+            >
+            </div></a>
+            <div class="top10CardContent">
+              <a href="" style="font-weight: 600; color: #3c096c"> Sports Games </a>
+            </div>
+          </div>
+
+          <div class="top10Card">
+            <a href="" style="height: 100%; width: 100%;"><div
+              style="background-image: url('https://mms.businesswire.com/media/20200519005131/en/792320/5/MAFIA_TRILOGY.jpg')"
+              class="categoryCardImg"
+            >
+            </div></a>
+            <div class="top10CardContent">
+              <a href=""> Action Games</a>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <footer>
+        
+        <!-- <pre>
+          🌐 Quick Links
+          🔹 Home | Categories | Trending Games | New Releases | About Us | Contact
+          
+          📲 Follow Us
+          🔗 Facebook | Twitter | Instagram | YouTube
+          
+          📞 Contact Us
+          📩 Email: support@yourwebsite.com
+          📍 Location: Your City, Country
+          📞 Phone: +123-456-7890
+          
+          📜 Legal
+          🔹 Privacy Policy | Terms of Service | Cookie Policy
+          
+          © 2025 GameFinder. All Rights Reserved.</pre> -->
+      </footer>
+    </main>
+  </body>
+</html>
