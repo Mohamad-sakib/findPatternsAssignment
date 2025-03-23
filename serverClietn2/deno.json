@@ -1,7 +1,7 @@
 {
   "tasks": {
-    "client": "deno run -A client.js ",
-    "server": "deno run -A server.js "
+    "test-server": "deno run -A ./test/server_test.js ",
+    "server": "deno run -A ./src/server.js "
   },
   "imports": {
     "@std/assert": "jsr:@std/assert@1",

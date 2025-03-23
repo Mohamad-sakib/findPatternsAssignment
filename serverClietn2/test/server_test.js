@@ -22,7 +22,7 @@ const test = async (cmd, args, expected) => {
   reader.releaseLock();
 };
 
-const parse = (msg) => {
+export const parse = (msg) => {
   const [cmd, ...args] = msg.split(/\s+/);
   return { cmd, args: args.map(Number) };
 };
