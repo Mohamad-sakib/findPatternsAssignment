@@ -10,10 +10,15 @@ const test = async (cmd, args, expected) => {
   await conn.write(new TextEncoder().encode(msg));
   const reader = conn.readable.getReader();
   const response = await reader.read();
-  reader.releaseLock();
   const actual = JSON.parse(decoder.decode(response.value));
   console.log(actual);
-  assertEquals(actual.result | actual.error, expected);
+
+  assertEquals(
+    actual.result === undefined ? actual.error : actual.result,
+    expected
+  );
+
+  reader.releaseLock();
 };
 
 const parse = (msg) => {
@@ -27,9 +32,23 @@ const testRaw = async (msg, expected) => {
   await test(cmd, args, expected);
 };
 
-const testAllRaw = async () => {
+const testValidCases = async () => {
   await testRaw("ADD 1 2", 3);
   await testRaw("ADD 1 1", 2);
+  await testRaw("SUB 1 4", -3);
+  await testRaw("SUB 1 1", 0);
+  await testRaw("MUL 1 4", 4);
+  await testRaw("MUL 1 0", 0);
+  await testRaw("DIV 1 0", null);
+  await testRaw("DIV 1 2", 0.5);
+  await testRaw("ABS 1", 1);
+};
+
+const testErrorCases = async () => {};
+
+const testAllRaw = async () => {
+  await testErrorCases();
+  await testValidCases();
 };
 
 // await testAllRaw();
