@@ -62,13 +62,20 @@ const sendResponse = async (response, connection) => {
 };
 
 const handelConnection = async (connection) => {
-  for await (const chunk of connection.readable) {
-    const request = decode(chunk);
-    console.log("request:", request);
-    const response = handelRequest(request);
-    console.log("response:", response);
-    sendResponse(response, connection);
-  }
+  // for await (const chunk of connection.readable) {
+  //   const request = decode(chunk);
+  //   console.log("request:", request);
+  //   const response = handelRequest(request);
+  //   console.log("response:", response);
+  //   sendResponse(response, connection);
+  // }
+
+  connection.readable
+    .pipeThrough(decodeRequest)
+    .pipeThrough(handelRequest)
+    .pipeThrough(formateResponse)
+    .pipeThrough(encodeRequest)
+    .pipeTo(connection.writable);
 };
 
 const startServer = async () => {

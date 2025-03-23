@@ -12,6 +12,7 @@ const decode = (chunk) => {
 const makeRequest = async (connection) => {
   const encoder = new TextEncoder();
   const request = prompt("");
+  if (request === "EXIT") return connection.close();
   const formatedRequest = JSON.stringify(parse(request));
   await connection.write(encoder.encode(formatedRequest));
 };
@@ -20,19 +21,27 @@ const handelResponse = async (connection) => {
   const reader = connection.readable.getReader();
   const response = await reader.read();
   const decodedResponse = decode(response.value);
-  const result = decodedResponse.result
-    ? decodedResponse.result
-    : decodedResponse.error;
+  const result =
+    decodedResponse.result !== undefined
+      ? decodedResponse.result
+      : decodedResponse.error;
   console.log(result);
   reader.releaseLock();
 };
+
 const main = async () => {
   const connection = await Deno.connect({ port: 8000 });
   while (true) {
-    await makeRequest(connection);
-    await handelResponse(connection);
+    try {
+      await makeRequest(connection);
+      await handelResponse(connection);
+    } catch {
+      console.log("connectionn end");
+      return;
+    }
   }
 };
 
 main();
+
 console.log("connected to port : 8000");
