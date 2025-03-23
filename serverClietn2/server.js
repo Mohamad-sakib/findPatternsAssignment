@@ -17,8 +17,11 @@ const mul = (args) => args[0] * args[1];
 const div = (args) => args[0] / args[1];
 const abs = ([arg]) => Math.abs(arg);
 const rand = (args) => {
-  if (args.length === 1) return Math.random();
+  if (args.length === 0) return Math.random();
   return _.random(args[0], args[1]);
+};
+const inValidCommand = () => {
+  return { error: "invalidCommand" };
 };
 
 const evaluate = (minNumberOfArgs, maxNumberOfArgs, fn) => {
@@ -26,13 +29,13 @@ const evaluate = (minNumberOfArgs, maxNumberOfArgs, fn) => {
     if (args.length === minNumberOfArgs || args.length >= maxNumberOfArgs) {
       return { result: fn(args) };
     }
-    return { error: "invaid args" };
+    return { error: "invalid args" };
   };
 };
 
 const executeCommand = (cmd) => {
   if (!isValidCommand(cmd)) {
-    return { error: "invalidCommand" };
+    return inValidCommand;
   }
 
   const commands = {
@@ -41,7 +44,7 @@ const executeCommand = (cmd) => {
     MUL: evaluate(2, 2, mul),
     DIV: evaluate(2, 2, div),
     ABS: evaluate(1, 2, abs),
-    RAND: evaluate(1, 2, rand),
+    RAND: evaluate(0, 2, rand),
   };
 
   return commands[cmd];

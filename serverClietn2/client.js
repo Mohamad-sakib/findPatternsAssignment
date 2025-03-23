@@ -12,6 +12,7 @@ const test = async (cmd, args, expected) => {
   const response = await reader.read();
   const actual = JSON.parse(decoder.decode(response.value));
   console.log(actual);
+  // console.log(response);
 
   assertEquals(
     actual.result === undefined ? actual.error : actual.result,
@@ -44,11 +45,18 @@ const testValidCases = async () => {
   await testRaw("ABS 1", 1);
 };
 
-const testErrorCases = async () => {};
+const testErrorCases = async () => {
+  await testRaw("add 1 2", "invalidCommand");
+  await testRaw("sub 1 ", "invalidCommand");
+  await testRaw("abc", "invalidCommand");
+  await testRaw("ADD 1", "invalid args");
+  await testRaw("ADD", "invalid args");
+  await testRaw("RAND 1", "invalid args");
+};
 
 const testAllRaw = async () => {
-  await testErrorCases();
   await testValidCases();
+  await testErrorCases();
 };
 
 // await testAllRaw();
