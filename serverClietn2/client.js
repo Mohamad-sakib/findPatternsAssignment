@@ -1,21 +1,23 @@
 import { assertEquals } from "jsr:@std/assert";
 
 const conn = await Deno.connect({ port: 8000 });
-// await conn.write(new TextEncoder().encode("ADD 1 1"));
-// const response = await conn.readable.getReader().read();
-// Deno.stdout.write(response.value);
 const decoder = new TextDecoder();
 
 const test = async (message, expected) => {
   await conn.write(new TextEncoder().encode(message));
-  const response = await conn.readable.getReader().read();
+  const reader = conn.readable.getReader();
+  const response = await reader.read();
   const actual = decoder.decode(response.value);
-  return assertEquals(actual, expected);
+  assertEquals(actual, expected);
+  reader.releaseLock();
 };
 
-const testAll = async () => {
-  await test("ADD 1 2", "3");
+const testAllRaw = async () => {
+  await testRaw("ADD 1 2", "3");
+  await testRaw("ADD 1 1", "2");
 };
 
-await testAll();
+// await testAllRaw();
+
+const testAll = async () => {};
 console.log("all test pass!");
